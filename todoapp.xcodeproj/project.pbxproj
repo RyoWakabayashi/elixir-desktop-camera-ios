@@ -3,22 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8685C60328D794DF00230F99 /* ZIPFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8A1FC62702233000054F1C /* ZIPFoundation.xcframework */; };
+		8685C60428D794DF00230F99 /* ZIPFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8A1FC62702233000054F1C /* ZIPFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8685C60628D794E100230F99 /* liberlang.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB3384628B396F7001E8DC7 /* liberlang.xcframework */; };
+		8685C60728D794E100230F99 /* liberlang.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECB3384628B396F7001E8DC7 /* liberlang.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC712AB026F6964C0066E483 /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC712AAF26F6964C0066E483 /* TodoApp.swift */; };
 		EC712AB226F6964C0066E483 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC712AB126F6964C0066E483 /* ContentView.swift */; };
 		EC712AB426F6964C0066E483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC712AB326F6964C0066E483 /* Assets.xcassets */; };
 		EC712AB726F6964C0066E483 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC712AB626F6964C0066E483 /* Preview Assets.xcassets */; };
 		EC8A1FB626FE752000054F1C /* native-lib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8A1FB426FE752000054F1C /* native-lib.cpp */; };
 		EC8A1FBC26FF226000054F1C /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8A1FBB26FF226000054F1C /* Bridge.swift */; };
-		EC8A1FC72702233000054F1C /* ZIPFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8A1FC62702233000054F1C /* ZIPFoundation.xcframework */; };
 		EC8A1FC92702328F00054F1C /* app.zip in Resources */ = {isa = PBXBuildFile; fileRef = EC8A1FC82702328F00054F1C /* app.zip */; };
 		EC8A1FD12704E9AB00054F1C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8A1FD02704E9AB00054F1C /* WebView.swift */; };
 		EC90CFEF273D772900C9A3F3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC90CFEE273D772900C9A3F3 /* README.md */; };
-		ECB3384728B396F7001E8DC7 /* liberlang.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB3384628B396F7001E8DC7 /* liberlang.xcframework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8685C60528D794DF00230F99 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8685C60728D794E100230F99 /* liberlang.xcframework in Embed Frameworks */,
+				8685C60428D794DF00230F99 /* ZIPFoundation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EC712AAC26F6964C0066E483 /* todoapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,14 +60,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECB3384728B396F7001E8DC7 /* liberlang.xcframework in Frameworks */,
-				EC8A1FC72702233000054F1C /* ZIPFoundation.xcframework in Frameworks */,
+				8685C60628D794E100230F99 /* liberlang.xcframework in Frameworks */,
+				8685C60328D794DF00230F99 /* ZIPFoundation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8685C60228D7946400230F99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC712AA326F6964C0066E483 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +86,7 @@
 				EC712AAE26F6964C0066E483 /* todoapp */,
 				EC712AAD26F6964C0066E483 /* Products */,
 				EC8A1FA426FE49C900054F1C /* example-Bridging-Header.h */,
+				8685C60228D7946400230F99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,8 +130,8 @@
 			buildPhases = (
 				EC712AA826F6964C0066E483 /* Sources */,
 				EC712AA926F6964C0066E483 /* Frameworks */,
-				EC8A1FD6270B4EF900054F1C /* ShellScript */,
 				EC712AAA26F6964C0066E483 /* Resources */,
+				8685C60528D794DF00230F99 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,28 +188,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EC8A1FD6270B4EF900054F1C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/app.zip",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "#!/bin/bash\nset -e\n# Setting up the PATH environment\n[ -s /opt/homebrew/bin/brew ] && eval $(/opt/homebrew/bin/brew shellenv)\n[ -s /usr/local/bin/brew ] && eval $(/usr/local/bin/brew shellenv)\n\nexport NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"  # This loads nvm\n[ -s \"$HOME/.asdf/asdf.sh\" ] && \\. $HOME/.asdf/asdf.sh # This loads asdf\n\n./run_mix\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC712AA826F6964C0066E483 /* Sources */ = {
@@ -326,6 +329,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"todoapp/Preview Content\"";
+				DEVELOPMENT_TEAM = 5VRD54SM2W;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = todoapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -333,7 +337,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.elixirdesktop.example;
+				PRODUCT_BUNDLE_IDENTIFIER = io.elixirdesktop.rwakabay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -350,6 +354,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"todoapp/Preview Content\"";
+				DEVELOPMENT_TEAM = 5VRD54SM2W;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = todoapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -357,7 +362,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.elixirdesktop.example;
+				PRODUCT_BUNDLE_IDENTIFIER = io.elixirdesktop.rwakabay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "example-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

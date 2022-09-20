@@ -6,7 +6,7 @@ export MIX_ENV=prod
 export MIX_TARGET=ios
 
 if [ ! -d "elixir-app" ]; then
-  git clone https://github.com/elixir-desktop/desktop-example-app.git elixir-app
+  git clone -b feature/ios https://github.com/RyoWakabayashi/elixir-desktop-camera.git elixir-app
 fi
 
 # using the right runtime versions

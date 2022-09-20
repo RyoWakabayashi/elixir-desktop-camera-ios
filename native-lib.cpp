@@ -25,7 +25,7 @@ void ensure_slash(std::string& str)
 }
 
 #define ERROR(x) { printf(x); return x; }
-const char* startErlang(std::string root_dir, std::string log_dir, const char *app_version, const char *erts_version)
+const char* startErlang(std::string root_dir, std::string home_dir, std::string log_dir, const char *app_version, const char *erts_version)
 {
     std::string bin_dir = getenv("BINDIR");
     // keeping it static to keep the environment variable alive
@@ -39,13 +39,7 @@ const char* startErlang(std::string root_dir, std::string log_dir, const char *a
     std::string config_path = root_dir + "releases/" + app_version + "/sys";
     std::string boot_path = root_dir + "releases/" + app_version + "/start";
     std::string lib_path = root_dir + "lib";
-    std::string home_dir;
     std::string update_dir = root_dir + "update";
-    if (const char* h = getenv("HOME")) {
-        home_dir = h;
-    } else {
-        home_dir = root_dir + "home";
-    }
 
     const char *args[] = {
             "test_main",
@@ -108,10 +102,12 @@ const char* startErlang(std::string root_dir, std::string log_dir, const char *a
 }
 
 extern "C" {
-const char* start_erlang(const char* root, const char* home) {
-    static std::string root_dir = root;
-    static std::string log_dir = home;
+const char* start_erlang(const char* home, const char* log) {
+    static std::string home_dir = home;
+    static std::string log_dir = log;
     
+    ensure_slash(home_dir);
+    static std::string root_dir = home_dir + "app";
     ensure_slash(root_dir);
     ensure_slash(log_dir);
     log_file = log_dir + "elixir.log";
@@ -132,7 +128,7 @@ const char* start_erlang(const char* root, const char* home) {
     if (!app_version) ERROR("Could not idenfity app version in start_erl.data file");
         
     std::thread erlang([=]{
-        return startErlang(root_dir, log_dir, app_version, erts_version);
+        return startErlang(root_dir, home_dir, log_dir, app_version, erts_version);
     });
     erlang.detach();
     return "ok";

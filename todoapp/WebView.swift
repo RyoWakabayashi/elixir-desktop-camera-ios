@@ -22,6 +22,7 @@ final class WebViewController: NSObject, UIViewRepresentable, WKNavigationDelega
         configuration.limitsNavigationsToAppBoundDomains = true
         configuration.preferences = preferences
         configuration.defaultWebpagePreferences = page
+        configuration.allowsInlineMediaPlayback = true
         
         webview = WKWebView(frame: CGRect.zero, configuration: configuration)
         // webView.navigationDelegate = context.coordinator

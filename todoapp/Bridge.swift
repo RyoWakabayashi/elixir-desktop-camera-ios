@@ -118,8 +118,7 @@ class Bridge {
             
             let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let logdir = urls[0].path
-            let appdir = home.appendingPathComponent("app")
-            let ret = start_erlang(appdir.path, logdir)
+            let ret = start_erlang(home.path, logdir)
             print("Ret: " + String(cString: ret!))
 
         case .failed(let error):
